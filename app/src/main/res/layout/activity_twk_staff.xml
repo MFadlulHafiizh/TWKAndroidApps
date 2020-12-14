@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TwkStaffActivity">
+
+    <include
+        layout="@layout/toolbar"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/userActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blackCharcoal"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        tools:context=".UserActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/tabss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingLeft="16dp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/staff_tabs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:transitionName="tabContent"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            app:tabIndicator="@drawable/custom_tablayout"
+            app:tabIndicatorAnimationDuration="400"
+            app:tabIndicatorColor="@color/RedDefault"
+            app:tabIndicatorGravity="stretch"
+            app:tabMinWidth="100dp"
+            app:tabRippleColor="@color/RedDefault"
+            app:tabTextAppearance="@style/tab_text"
+            app:tabTextColor="@android:color/white"
+            app:tabUnboundedRipple="true">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To do" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Has done" />
+
+        </com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_home_bg"
+            app:layout_constraintTop_toTopOf="@id/viewpagerStaff"
+            app:layout_constraintBottom_toBottomOf="@id/viewpagerStaff"
+            app:layout_constraintLeft_toLeftOf="@id/viewpagerStaff"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpagerStaff"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/tabss"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

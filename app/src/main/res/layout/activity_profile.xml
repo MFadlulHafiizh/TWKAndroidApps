@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blackCharcoal"
+    android:orientation="vertical"
+    tools:context=".ProfileActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/profile_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/profilbg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/blackCharcoal"
+                android:scaleType="centerCrop"
+                tools:background="@drawable/collapse"
+                app:riv_corner_radius_bottom_left="25dp"
+                app:riv_corner_radius_bottom_right="25dp" />
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_transparent_clickable"
+                android:src="@drawable/ic_baseline_arrow_back"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                android:tint="@color/defaultWhite"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/userImage"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/ic_avatar" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/chooseUserImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerInside"
+                        android:elevation="1dp"
+                        android:src="@drawable/ic_upload_photo"
+                        android:layout_alignBottom="@id/userImage"
+                        android:layout_alignEnd="@+id/userImage"
+                        android:backgroundTint="@color/RedDefault"
+                        app:borderWidth="0dp"
+                        android:clickable="true"
+                        app:rippleColor="@android:color/holo_red_light"
+                        app:fabSize="mini"/>
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:gravity="center"
+                    tools:text="Reza Example"
+                    android:textColor="@color/defaultWhite" />
+
+                <TextView
+                    android:id="@+id/profile_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/comfortaa_bold"
+                    android:gravity="center"
+                    tools:text="Reza@gmail.com"
+                    android:textColor="@color/defaultWhite"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </FrameLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/companytitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/comfortaa_light"
+            android:padding="8dp"
+            android:text="Your Company"
+            android:textColor="@color/defaultWhite"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/comfortaa_bold"
+            android:padding="8dp"
+            android:textColor="@color/defaultWhite"
+            android:textSize="16sp"
+            tools:text="PT.Triwikrama"
+            app:layout_constraintTop_toBottomOf="@+id/companytitle"
+            app:layout_constraintLeft_toLeftOf="@id/companytitle"
+            app:layout_constraintRight_toRightOf="@id/companytitle"/>
+
+        <TextView
+            android:id="@+id/appstitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/comfortaa_light"
+            android:padding="8dp"
+            android:text="Company apps"
+            android:textColor="@color/defaultWhite"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_company"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_company_apps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/appstitle"
+            app:layout_constraintLeft_toLeftOf="@id/appstitle"
+            app:layout_constraintRight_toRightOf="@id/appstitle"
+            tools:listitem="@layout/item_row_apps_company"/>
+
+        <ProgressBar
+            android:id="@+id/load_company_apps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:indeterminateTint="@color/RedDefault"/>
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="32dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/comfortaa_bold"
+            android:text="Logout"
+            android:textColor="@color/defaultWhite"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
